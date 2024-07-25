@@ -44,7 +44,7 @@ jobs:
       - name: Check out infra repository
         uses: actions/checkout@v2
         with:
-          repository: "NatAiFalcon/infra"
+          repository: "NetAiFalcon/infra"
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
           fetch-depth: 0
 
