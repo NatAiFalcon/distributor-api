@@ -13,7 +13,7 @@ def read_root():
 @app.get("/uwb/{tag_id}")
 def read_item(tag_id: int):
     try:
-        temp_filename = "temp" + str(tag_id)
+        temp_filename = "../shared/temp" + str(tag_id)
         with open(temp_filename + ".txt", 'r') as f:
             line = f.readline()
         return line
