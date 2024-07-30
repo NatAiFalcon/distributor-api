@@ -1,10 +1,11 @@
 
 
 from typing import Union
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, APIRouter
 import logging
 # FastAPI 애플리케이션 생성
 app = FastAPI()
+router = APIRouter()
 
 @app.get("/")
 def read_root():
@@ -22,4 +23,8 @@ def read_item(tag_id: int):
         raise HTTPException(status_code=404, detail="Not Vaild tag ID")
 
 
+app.include_router(router, prefix="/api")
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 # uwb의 좌표를 보내는 api server
