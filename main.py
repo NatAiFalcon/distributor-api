@@ -12,9 +12,9 @@ router = APIRouter()
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/listdir")
-def read_dir():
-    return os.listdir("../shared/")
+@app.get("/listdir/{dir}")
+def read_dir(dir: str):
+    return os.listdir(dir)
 
 @app.get("/uwb/{tag_id}")
 def read_item(tag_id: int):
