@@ -3,6 +3,7 @@
 from typing import Union
 from fastapi import FastAPI, HTTPException, APIRouter
 import logging
+import os
 # FastAPI 애플리케이션 생성
 app = FastAPI()
 router = APIRouter()
@@ -10,6 +11,10 @@ router = APIRouter()
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+@app.get("/listdir")
+def read_dir():
+    return os.listdir("../shared/")
 
 @app.get("/uwb/{tag_id}")
 def read_item(tag_id: int):
